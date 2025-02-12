@@ -22,8 +22,17 @@ export default class Shop extends Component {
                 { id: 2, href: 'https://www.spotify.com', img: '/images/Spotify Logo.png' },
                 { id: 3, href: 'https://www.facebook.com', img: '/images/FaceBook Logo.png' },
             ],
-            isMenuOpen: false
+            isMenuOpen: false,
+            showCheckout: false
         }
+    }
+
+    handleCheckout = () => {
+        this.setState({ showCheckout: true })
+    }
+
+    handleBackToShop = () => {
+        this.setState({ showCheckout: false })
     }
 
     toggleMenu = () => {
@@ -57,7 +66,47 @@ export default class Shop extends Component {
     }
 
     render() {
-        const { isMenuOpen } = this.state
+        const { isMenuOpen, showCheckout, shoppingCart} = this.state;
+
+        const totalPrice = shoppingCart.reduce((sum, product) => sum + product.price, 0);
+
+        if (showCheckout) {
+            return (
+                <section className='container content-section invoice-section'>
+                    <h2 className='section-title'>فاکتور خرید</h2>
+                    <div className="invoice-table">
+                        <div className="invoice-header">
+                            <span>ردیف</span>
+                            <span>نام کالا</span>
+                            <span>قیمت (تومان)</span>
+                        </div>
+                        {shoppingCart.length === 0 ? (
+                            <div className="invoice-row empty-row">
+                                <span colSpan={3}>سبد خرید خالی است.</span>
+                            </div>
+                        ) : (
+                            shoppingCart.map((product, idx) => (
+                                <div className="invoice-row" key={idx}>
+                                    <span>{idx + 1}</span>
+                                    <span>{product.title}</span>
+                                    <span>{product.price.toLocaleString()}</span>
+                                </div>
+                            ))
+                        )}
+                        <div className="invoice-footer">
+                            <span></span>
+                            <span>جمع کل:</span>
+                            <span>{totalPrice.toLocaleString()} تومان</span>
+                        </div>
+                    </div>
+                    <div className="invoice-actions">
+                        <button className="btn btn-secondary" onClick={this.handleBackToShop}>بازگشت به فروشگاه</button>
+                        <button className="btn btn-success">پرداخت</button>
+                    </div>
+                </section>
+            )
+        }
+
         return (
             <>
                 <header className="main-header">
@@ -98,6 +147,7 @@ export default class Shop extends Component {
                     </div>
                     <div className='btn-holder'>
                         <button className="btn btn-primary btn-purchase" type="button" onClick={this.emptyShoppingCart}>Empty Cart</button>
+                        <button className="btn btn-success btn-purchase" type="button" onClick={this.handleCheckout}>Final payment</button>
                     </div>
                 </section>
                 <footer className="main-footer">
@@ -109,7 +159,7 @@ export default class Shop extends Component {
                             ))}
                         </ul>
                     </div>
-                    <p className='copy-rigth'>Copy-Rigth..@.....</p>
+                    <p className='copy-rigth'>copy-right..@.....</p>
                 </footer>
             </>
         )
