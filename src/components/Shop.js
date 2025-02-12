@@ -23,36 +23,27 @@ export default class Shop extends Component {
                 { id: 3, href: 'https://www.facebook.com', img: 'images/FaceBook Logo.png' },
             ]
         }
-        this.addProductToCart = this.addProductToCart.bind(this)
-        this.removeProductFromCart = this.removeProductFromCart.bind(this)
-        this.emptyShoppingCart = this.emptyShoppingCart.bind(this)
     }
 
-    addProductToCart(productId) {
+    addProductToCart = (productId) => {
         console.log(productId)
 
-        let mainProduct = this.state.products.find(product => {
-            return product.id === productId
-        })
+        let mainProduct = this.state.products.find(product => product.id === productId)
         console.log(mainProduct)
 
-        this.setState(prevstate => {
-            return {
-                shoppingCart: [...prevstate.shoppingCart, mainProduct]
-            }
-        })
+        this.setState(prevState => ({
+            shoppingCart: [...prevState.shoppingCart, mainProduct]
+        }))
     }
 
-    emptyShoppingCart() {
+    emptyShoppingCart = () => {
         this.setState({
             shoppingCart: []
         })
     }
 
-    removeProductFromCart(productId) {
-        let newShoppingCart = this.state.shoppingCart.filter(product => {
-            return product.id !== productId
-        })
+    removeProductFromCart = (productId) => {
+        let newShoppingCart = this.state.shoppingCart.filter(product => product.id !== productId)
         this.setState({
             shoppingCart: newShoppingCart
         })
@@ -71,13 +62,12 @@ export default class Shop extends Component {
                             <li className='nav-list-item'><a href="#" className="nav-link">About</a></li>
                             <li className='nav-list-item'><a href="#" className="nav-link">Products</a></li>
                         </ul>
-
                     </nav>
                 </header>
                 <section className="container content-section">
                     <div className="shop-items">
                         {this.state.products.map(product => (
-                            <Product {...product} onAddProduct={this.addProductToCart} className="shop-item"></Product>
+                            <Product key={product.id} {...product} onAddProduct={this.addProductToCart} className="shop-item"></Product>
                         ))}
                     </div>
                 </section>
@@ -90,7 +80,7 @@ export default class Shop extends Component {
                     </div>
                     <div className="cart-items">
                         {this.state.shoppingCart.map(product => (
-                            <CartProduct {...product} onRemove={this.removeProductFromCart} className="cart-item"></CartProduct>
+                            <CartProduct key={product.id} {...product} onRemove={this.removeProductFromCart} className="cart-item"></CartProduct>
                         ))}
                     </div>
                     <button className="btn btn-primary btn-purchase" type="button" onClick={this.emptyShoppingCart}>Empty Cart</button>
@@ -100,7 +90,7 @@ export default class Shop extends Component {
                         <h3 className="band-name">The Generics</h3>
                         <ul className="nav-footer nav">
                             {this.state.socials.map(social => (
-                                <Social {...social} className="social-link"></Social>
+                                <Social key={social.id} {...social} className="social-link"></Social>
                             ))}
                         </ul>
                     </div>
