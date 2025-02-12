@@ -210,6 +210,10 @@ ul {
 
 .shop-item-image {
     height: 250px;
+    width: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: cover;
 }
 
 .shop-item-details {

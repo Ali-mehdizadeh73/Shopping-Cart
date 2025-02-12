@@ -9,12 +9,12 @@ export default class Shop extends Component {
 
         this.state = {
             products: [
-                { id: 1, title: 'Album 1', price: 5, img: 'images/Album 1.png' },
-                { id: 2, title: 'Album 2', price: 15, img: 'images/Album 2.png' },
-                { id: 3, title: 'Album 3', price: 20, img: 'images/Album 3.png' },
-                { id: 4, title: 'Album 4', price: 100, img: 'images/Album 4.png' },
-                { id: 5, title: 'Album 5', price: 5, img: 'images/Album 5.png' },
-                { id: 6, title: 'Album 6', price: 50, img: 'images/Album 6.png' },
+                { id: 1, title: 'Album 1', price: 1500, img: 'images/Album 1.jpeg' },
+                { id: 2, title: 'Album 2', price: 2048, img: 'images/Album 2.jpeg' },
+                { id: 3, title: 'Album 3', price: 3651, img: 'images/Album 3.jpeg' },
+                { id: 4, title: 'Album 4', price: 8540, img: 'images/Album 4.jpeg' },
+                { id: 5, title: 'Album 5', price: 1205, img: 'images/Album 5.jpeg' },
+                { id: 6, title: 'Album 6', price: 2254, img: 'images/Album 6.jpeg' },
             ],
             shoppingCart: [],
             socials: [
@@ -53,7 +53,7 @@ export default class Shop extends Component {
         return (
             <>
                 <header className="main-header">
-                    <nav className="main-nav nav">
+                    <nav className="container main-nav nav">
                         <h3 className="header-title">Online Boutique</h3>
                         <ul className="nav-list">
                             <li className='nav-list-item'><a href="#" className="nav-link">Home</a></li>
