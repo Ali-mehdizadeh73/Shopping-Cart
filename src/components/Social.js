@@ -8,7 +8,7 @@ export default class Social extends Component {
         return (
             <li>
                 <a href={href} target="_blank">
-                    <img src={img} />
+                    <img className='footer-nav-img' src={img} />
                 </a>
             </li>
         )

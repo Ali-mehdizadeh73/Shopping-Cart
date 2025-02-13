@@ -93,7 +93,9 @@ export default class Shop extends Component {
                                 <Social key={social.id} {...social} className="social-link"></Social>
                             ))}
                         </ul>
+
                     </div>
+                    <p className='copy-rigth'>Copy-Rigth..@.....</p>
                 </footer>
             </>
         )
