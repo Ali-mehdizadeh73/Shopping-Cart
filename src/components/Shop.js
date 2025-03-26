@@ -9,20 +9,27 @@ export default class Shop extends Component {
 
         this.state = {
             products: [
-                { id: 1, title: 'Album 1', price: 1500, img: 'images/Album 1.jpeg' },
-                { id: 2, title: 'Album 2', price: 2048, img: 'images/Album 2.jpeg' },
-                { id: 3, title: 'Album 3', price: 3651, img: 'images/Album 3.jpeg' },
-                { id: 4, title: 'Album 4', price: 8540, img: 'images/Album 4.jpeg' },
-                { id: 5, title: 'Album 5', price: 1205, img: 'images/Album 5.jpeg' },
-                { id: 6, title: 'Album 6', price: 2254, img: 'images/Album 6.jpeg' },
+                { id: 1, title: 'Album 1', price: 1500, img: '/images/Album 1.jpeg' },
+                { id: 2, title: 'Album 2', price: 2048, img: '/images/Album 2.jpeg' },
+                { id: 3, title: 'Album 3', price: 3651, img: '/images/Album 3.jpeg' },
+                { id: 4, title: 'Album 4', price: 8540, img: '/images/Album 4.jpeg' },
+                { id: 5, title: 'Album 5', price: 1205, img: '/images/Album 5.jpeg' },
+                { id: 6, title: 'Album 6', price: 2254, img: '/images/Album 6.jpeg' },
             ],
             shoppingCart: [],
             socials: [
-                { id: 1, href: 'https://www.youtube.com', img: 'images/YouTube Logo.png' },
-                { id: 2, href: 'https://www.spotify.com', img: 'images/Spotify Logo.png' },
-                { id: 3, href: 'https://www.facebook.com', img: 'images/FaceBook Logo.png' },
-            ]
+                { id: 1, href: 'https://www.youtube.com', img: '/images/YouTube Logo.png' },
+                { id: 2, href: 'https://www.spotify.com', img: '/images/Spotify Logo.png' },
+                { id: 3, href: 'https://www.facebook.com', img: '/images/FaceBook Logo.png' },
+            ],
+            isMenuOpen: false
         }
+    }
+
+    toggleMenu = () => {
+        this.setState(prevState => ({
+            isMenuOpen: !prevState.isMenuOpen
+        }))
     }
 
     addProductToCart = (productId) => {
@@ -50,12 +57,18 @@ export default class Shop extends Component {
     }
 
     render() {
+        const { isMenuOpen } = this.state
         return (
             <>
                 <header className="main-header">
                     <nav className="container main-nav nav">
-                        <h3 className="header-title">Online Boutique</h3>
-                        <ul className="nav-list">
+                        <h3 className="header-title"><a href="#">Online Boutique</a></h3>
+                        <div className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`} onClick={this.toggleMenu}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul className={`nav-list ${isMenuOpen ? 'active' : ''}`}>
                             <li className='nav-list-item'><a href="#" className="nav-link">Home</a></li>
                             <li className='nav-list-item'><a href="#" className="nav-link">Store</a></li>
                             <li className='nav-list-item'><a href="#" className="nav-link">Contact</a></li>
@@ -67,7 +80,7 @@ export default class Shop extends Component {
                 <section className="container content-section">
                     <div className="shop-items">
                         {this.state.products.map(product => (
-                            <Product key={product.id} {...product} onAddProduct={this.addProductToCart} className="shop-item"></Product>
+                            <Product key={product.id} {...product} onAddProduct={this.addProductToCart} className="shop-item" />
                         ))}
                     </div>
                 </section>
@@ -80,20 +93,21 @@ export default class Shop extends Component {
                     </div>
                     <div className="cart-items">
                         {this.state.shoppingCart.map(product => (
-                            <CartProduct key={product.id} {...product} onRemove={this.removeProductFromCart} className="cart-item"></CartProduct>
+                            <CartProduct key={product.id} {...product} onRemove={this.removeProductFromCart} className="cart-item" />
                         ))}
                     </div>
-                    <button className="btn btn-primary btn-purchase" type="button" onClick={this.emptyShoppingCart}>Empty Cart</button>
+                    <div className='btn-holder'>
+                        <button className="btn btn-primary btn-purchase" type="button" onClick={this.emptyShoppingCart}>Empty Cart</button>
+                    </div>
                 </section>
                 <footer className="main-footer">
                     <div className="container main-footer-container">
                         <h3 className="band-name">The Generics</h3>
                         <ul className="nav-footer nav">
                             {this.state.socials.map(social => (
-                                <Social key={social.id} {...social} className="social-link"></Social>
+                                <Social key={social.id} {...social} className="social-link" />
                             ))}
                         </ul>
-
                     </div>
                     <p className='copy-rigth'>Copy-Rigth..@.....</p>
                 </footer>

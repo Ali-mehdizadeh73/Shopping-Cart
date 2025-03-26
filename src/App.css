@@ -50,6 +50,7 @@ ul {
     padding-left: 2rem;
     padding-right: 10rem;
 }
+<<<<<<< HEAD
 .header-title{
     max-width: 9rem;
 }
@@ -57,6 +58,13 @@ ul {
     text-align: center;
     margin: 0;
     font-size: 3em;
+=======
+
+.band-name {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     font-family: "Booter - Zero Zero";
     font-weight: normal;
     color: white;
@@ -65,12 +73,16 @@ ul {
 .band-name-large {
     font-size: 8em;
 }
+<<<<<<< HEAD
 .copy-rigth {
     text-align: center;
     font-size: 1rem;
     color: #333;
     margin-bottom: 0;
 }
+=======
+
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
 .content-section {
     margin: 1em;
 }
@@ -97,7 +109,11 @@ ul {
 }
 
 .main-footer {
+<<<<<<< HEAD
     background-color: #517f8d;
+=======
+    background-color: #56CCF2;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     color: white;
     padding: .25em 0;
 }
@@ -105,17 +121,32 @@ ul {
 .main-footer-container {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     justify-content: space-evenly;
 }
 
+=======
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: end;
+}
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
 
 .footer-nav li {
     padding: 0 .5em;
 }
 
+<<<<<<< HEAD
 .footer-nav-img {
     width: 3rem;
     height: 3rem;
+=======
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
 }
 
 .btn {
@@ -128,7 +159,11 @@ ul {
 .btn-header {
     margin: .5em 15% 2em 15%;
     color: white;
+<<<<<<< HEAD
     border: 2px solid #517f8d;
+=======
+    border: 2px solid #2D9CDB;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     background-color: rgba(255, 255, 255, .1);
     border-radius: 0;
     font-size: 1.5em;
@@ -144,7 +179,11 @@ ul {
 .btn-play {
     display: block;
     margin: 0 auto;
+<<<<<<< HEAD
     color: #517f8d;
+=======
+    color: #2D9CDB;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     font-size: 4em;
     border-radius: 50%;
     width: 100px;
@@ -155,14 +194,22 @@ ul {
 
 .btn-primary {
     color: white;
+<<<<<<< HEAD
     background-color: #517f8d;
+=======
+    background-color: #56CCF2;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     border: none;
     border-radius: .3em;
     font-weight: bold;
 }
 
 .btn-primary:hover {
+<<<<<<< HEAD
     background-color: #517f8d;
+=======
+    background-color: #2D9CDB;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
 }
 
 .tour-row {
@@ -214,10 +261,13 @@ ul {
 
 .shop-item-image {
     height: 250px;
+<<<<<<< HEAD
     width: 250px;
     background-position: center;
     background-size: cover;
     background-repeat: cover;
+=======
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
 }
 
 .shop-item-details {
@@ -298,7 +348,11 @@ ul {
     height: 34px;
     width: 50px;
     border-radius: 5px;
+<<<<<<< HEAD
     border: 1px solid #517f8d;
+=======
+    border: 1px solid #56CCF2;
+>>>>>>> 7b7c1297e1bc02a8e9811671b90041c3d3d94410
     background-color: #eee;
     color: #333;
     padding: 0;
