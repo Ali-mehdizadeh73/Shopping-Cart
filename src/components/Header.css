@@ -1,0 +1,13 @@
+.header {
+  background-color: #0d1b2a !important; /* سرمه‌ای تیره */
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}

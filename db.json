@@ -1,8 +1,26 @@
 {
   "products": [
-    { "id": 1, "name": "T-Shirt", "price": 150 },
-    { "id": 2, "name": "Jeans", "price": 250 },
-    { "id": 3, "name": "Shoes", "price": 400 }
+    {
+      "id": "1",
+      "name": "T-Shirt",
+      "price": 150
+    },
+    {
+      "id": "2",
+      "name": "Jeans",
+      "price": 250
+    },
+    {
+      "id": "3",
+      "name": "Shoes",
+      "price": 400
+    }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "1",
+      "name": "T-Shirt",
+      "price": 150
+    }
+  ]
 }

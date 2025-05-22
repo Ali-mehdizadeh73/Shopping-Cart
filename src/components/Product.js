@@ -1,29 +1,23 @@
-import React, { Component } from 'react'
+import React from "react";
+import { Card, Button } from "react-bootstrap";
 
-export default class Product extends Component {
-    
-    clickHandler (id) {
-        this.props.onAddProduct(id)
-    }
-
-    render() {
-
-        let {id, title, price, img} = this.props
-
-        return (
-            <div className="shop-item">
-                <span className="shop-item-title">{title}</span>
-                <img className="shop-item-image" src={img} />
-                <div className="shop-item-details">
-                    <span className="shop-item-price">${price}</span>
-                    <button
-                        className="btn btn-primary shop-item-button"
-                        type="button"
-                        onClick={this.clickHandler.bind(this, id)}>
-                        ADD TO CART
-                    </button>
-                </div>
-            </div>
-        )
-    }
+function Product({ products, onAddToCart }) {
+  return (
+    <div>
+      <h4>محصولات</h4>
+      {products.map((product) => (
+        <Card key={product.id}>
+          <Card.Body>
+            <Card.Title>{product.name}</Card.Title>
+            <Card.Text>قیمت: ${product.price}</Card.Text>
+            <Button className="btn-navy" onClick={() => onAddToCart(product)}>
+              افزودن به سبد خرید
+            </Button>
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
+  );
 }
+
+export default Product;
