@@ -14,6 +14,7 @@ function App() {
   const [toast, setToast] = useState({ show: false, message: "" });
   const [searchTerm, setSearchTerm] = useState("");
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   // دریافت داده‌ها
   useEffect(() => {
@@ -60,22 +61,32 @@ function App() {
   // بستن Toast بعد از چند ثانیه
   const handleToastClose = () => setToast({ ...toast, show: false });
 
-  const clearCart = () => {
   // حذف همه آیتم‌ها از سبد خرید روی سرور و کلاینت
-  Promise.all(cart.map((item) =>
-    fetch(`http://localhost:3001/cart/${item.id}`, {
-      method: "DELETE",
-    })
-  ))
-    .then(() => setCart([]))
-    .catch((err) => console.error("خطا در پاکسازی سبد خرید:", err));
-};
-
+  const clearCart = () => {
+    Promise.all(
+      cart.map((item) =>
+        fetch(`http://localhost:3001/cart/${item.id}`, {
+          method: "DELETE",
+        })
+      )
+    )
+      .then(() => setCart([]))
+      .catch((err) => console.error("خطا در پاکسازی سبد خرید:", err));
+  };
 
   return (
-    <div>
-      <Header/>
-    
+    <div className={darkMode ? "dark-mode" : ""}>
+      <Header />
+
+      {/* دکمه گرد دارک/لایت مد */}
+      <button
+        className="dark-mode-toggle"
+        onClick={() => setDarkMode((prev) => !prev)}
+        aria-label="Toggle dark mode"
+      >
+        {darkMode ? "🌙" : "☀️"}
+      </button>
+
       <Container>
         <Row className="mb-3">
           <Col>
@@ -104,7 +115,13 @@ function App() {
 
       {/* Toast */}
       <ToastContainer position="bottom-end" className="p-3">
-        <Toast show={toast.show} onClose={handleToastClose} delay={3000} autohide bg="success">
+        <Toast
+          show={toast.show}
+          onClose={handleToastClose}
+          delay={3000}
+          autohide
+          bg="success"
+        >
           <Toast.Body>{toast.message}</Toast.Body>
         </Toast>
       </ToastContainer>
@@ -116,7 +133,7 @@ function App() {
         cartItems={cart}
         onPaymentSuccess={clearCart}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -42,3 +42,41 @@ ul {
 }
 
 
+/* فایل: src/App.css */
+.dark-mode {
+  background: #181818 !important;
+  color: #f1f1f1 !important;
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode .card {
+  background: #232323;
+  color: #f1f1f1;
+}
+.dark-mode .form-control {
+  background: #232323;
+  color: #f1f1f1;
+  border-color: #444;
+}
+.dark-mode-toggle {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #222;
+  color: #ffd700;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px #0002;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode-toggle:hover {
+  background: #444;
+  color: #fff;
+}

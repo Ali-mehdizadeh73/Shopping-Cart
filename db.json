@@ -3,24 +3,46 @@
     {
       "id": "1",
       "name": "T-Shirt",
-      "price": 150
+      "price": 150,
+      "image": "images/1.jpg"
     },
     {
       "id": "2",
       "name": "Jeans",
-      "price": 250
+      "price": 250,
+      "image": "images/2.jpg"
     },
     {
       "id": "3",
       "name": "Shoes",
-      "price": 400
+      "price": 400,
+      "image": "images/3.jpg"
+    },
+    {
+      "id": "4",
+      "name": "T-Shirt",
+      "price": 250,
+      "image": "images/4.jpg"
+    },
+    {
+      "id": "5",
+      "name": "T-Shirt",
+      "price": 158,
+      "image": "images/5.jpg"
+    },
+    {
+      "id": "6",
+      "name": "T-Shirt",
+      "price": 135,
+      "image": "images/6.jpg"
     }
   ],
   "cart": [
     {
-      "id": "1",
+      "id": "4",
       "name": "T-Shirt",
-      "price": 150
+      "price": 250,
+      "image": "images/4.jpg"
     }
   ]
 }
