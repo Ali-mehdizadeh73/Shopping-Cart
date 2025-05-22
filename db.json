@@ -37,12 +37,5 @@
       "image": "images/6.jpg"
     }
   ],
-  "cart": [
-    {
-      "id": "4",
-      "name": "T-Shirt",
-      "price": 250,
-      "image": "images/4.jpg"
-    }
-  ]
+  "cart": []
 }
